@@ -5,6 +5,7 @@ import (
 	"github.com/labstack/echo/v4"
 	echoSwagger "github.com/swaggo/echo-swagger"
 
+	_ "go-pb-swagger/docs"
 	"go-pb-swagger/greeting"
 )
 
@@ -28,8 +29,7 @@ func main() {
 		greeting.DecHelloRequest,
 		greeting.EncHelloRequest,
 	)))
-
-	e.GET("/swagger", echoSwagger.WrapHandler)
+	e.GET("/swagger/*", echoSwagger.WrapHandler)
 
 	e.Logger.Fatal(e.Start(":10086"))
 }
