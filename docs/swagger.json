@@ -1,0 +1,70 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Hello API",
+        "contact": {
+            "name": "n",
+            "email": "navono007@gmail.com"
+        },
+        "license": {},
+        "version": "0.1"
+    },
+    "host": "10.10.10.10:10888",
+    "basePath": "/api",
+    "paths": {
+        "/": {
+            "get": {
+                "description": "this is description",
+                "consumes": [
+                    "application/octet-stream"
+                ],
+                "produces": [
+                    "application/octet-stream"
+                ],
+                "tags": [
+                    ""
+                ],
+                "summary": "this is summary",
+                "parameters": [
+                    {
+                        "description": "HelloRequest",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/hello.HelloRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/hello.HelloResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "hello.HelloRequest": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                }
+            }
+        },
+        "hello.HelloResponse": {
+            "type": "object",
+            "properties": {
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

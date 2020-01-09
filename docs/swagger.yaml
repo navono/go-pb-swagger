@@ -1,0 +1,46 @@
+basePath: /api
+definitions:
+  hello.HelloRequest:
+    properties:
+      msg:
+        type: string
+    type: object
+  hello.HelloResponse:
+    properties:
+      msg:
+        type: string
+    type: object
+host: 10.10.10.10:10888
+info:
+  contact:
+    email: navono007@gmail.com
+    name: "n"
+  license: {}
+  title: Hello API
+  version: "0.1"
+paths:
+  /:
+    get:
+      consumes:
+      - application/octet-stream
+      description: this is description
+      parameters:
+      - description: HelloRequest
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/hello.HelloRequest'
+          type: object
+      produces:
+      - application/octet-stream
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/hello.HelloResponse'
+            type: object
+      summary: this is summary
+      tags:
+      - ""
+swagger: "2.0"
